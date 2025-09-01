@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generador de contraseñas </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Generador de <br><span> contraseñas alertorias</span></h1>
+    </div>
+    <div class="password-container">
+        <input type="text" id="password" placeholder="contraseñas" readonly>
+        <img src="copy.png" alt="copy-icon" class="copy-icon" onclick="copiarContraseña()">
+    </div>
+    <button onclick="generarContraseña()"> Generar contraseña </button>
+    <script>
+
+        function generarContraseña() {
+const caracteres= 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&/())=?¡[]><-+}{';
+      let contraseña =""
+      for (let i = 0; i <12; i++) {
+        const randomdex = Math.floor(caracteres.length*Math.random());
+      contraseña =  contraseña + caracteres[randomdex];
+      }
+      document.getElementById('password').value =contraseña;
+        }
+      
+        function copiarContraseña() {
+         const contraseñaInput =  document.getElementById('password');
+         contraseñaInput.select();
+         navigator.clipboard.writeText(contraseñaInput.value);
+        }
+        </script>
+</body>
+</html>
